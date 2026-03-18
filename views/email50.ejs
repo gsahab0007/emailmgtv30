@@ -1,0 +1,108 @@
+<%-include('./partials/header')%>
+
+<div class="bg-orange-200">
+
+  <h2 class="font-bold text-center text-2xl">All Email IDs 50 Slots</h2>
+  <h2 class="text-center">Unique Emails: <%=totalEmails%></h2>
+  <h2 class="text-center">Excluded Duplicate Emails: <%=duplicates.length%></h2>
+
+
+  <% var css_emailcount="text-xl mx-5 inline";%>
+  <% var cssP="items-center bg-gray-100 text-xl px-4 inline";%>
+  <% var css_btn="bg-red-400 px-5 my-1 p-2  rounded ";%>
+  <% var css_chkbox="w-5 h-5 mx-5 items-center cursor-pointer";%>
+  <% var css_textArea="mx-auto flex px-3 py-2 mb-5 text-[0.70rem]";%>
+
+
+  <div class="mx-auto w-[100%] mb-10  ">
+
+    <!-- 1 -->
+    <p class="<%=cssP%>">Stot:1</p>
+    <input type="checkbox" id="cBdepttStr1" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBdepttStr1','cBdepttStr1')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBdepttStr1" cols="290" rows="5"><%= emailSlot1 %></textarea>
+
+    <!-- 2 -->
+    <p class="<%=cssP%>">Stot:2</p>
+    <input type="checkbox" id="cBdepttStr2" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBdepttStr2','cBdepttStr2')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBdepttStr2" cols="290" rows="5"><%= emailSlot2 %></textarea>
+
+    <!-- 3 -->
+    <p class="<%=cssP%>">Stot:3</p>
+    <input type="checkbox" id="cBdepttStr3" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBdepttStr3','cBdepttStr3')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBdepttStr3" cols="290" rows="5"><%= emailSlot3 %></textarea>
+
+    <!-- 4 -->
+    <p class="<%=cssP%>">Stot:4</p>
+    <input type="checkbox" id="cBdepttStr4" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBdepttStr4','cBdepttStr4')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBdepttStr4" cols="290" rows="5"><%= emailSlot4 %></textarea>
+
+    <!-- 5 -->
+    <p class="<%=cssP%>">Stot:5</p>
+    <input type="checkbox" id="cBdepttStr5" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBdepttStr5','cBdepttStr5')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBdepttStr5" cols="290" rows="5"><%= emailSlot5 %></textarea>
+
+    <!-- 6 -->
+    <p class="<%=cssP%>">Stot:6</p>
+    <input type="checkbox" id="cBdepttStr6" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBdepttStr6','cBdepttStr6')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBdepttStr6" cols="290" rows="5"><%= emailSlot6 %></textarea>
+
+    <!-- 7 -->
+    <p class="<%=cssP%>">Stot:7</p>
+    <input type="checkbox" id="cBdepttStr7" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBdepttStr7','cBdepttStr7')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBdepttStr7" cols="290" rows="5"><%= emailSlot7 %></textarea>
+
+    <!-- 8 -->
+    <p class="<%=cssP%>">Stot:8</p>
+    <input type="checkbox" id="cBdepttStr8" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBdepttStr8','cBdepttStr8')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBdepttStr8" cols="290" rows="5"><%= emailSlot8 %></textarea>
+
+    <!-- 9 -->
+    <p class="<%=cssP%>">Stot:9</p>
+    <input type="checkbox" id="cBdepttStr9" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBdepttStr9','cBdepttStr9')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBdepttStr9" cols="290" rows="5"><%= emailSlot9 %></textarea>
+
+    <!-- 10 -->
+    <p class="<%=cssP%>">Stot:10</p>
+    <input type="checkbox" id="cBdepttStr10" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBdepttStr10','cBdepttStr10')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBdepttStr10" cols="290" rows="5"><%= emailSlot10 %></textarea>
+
+    <!-- 11 -->
+    <p class="<%=cssP%>">Stot:11</p>
+    <input type="checkbox" id="cBdepttStr11" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBdepttStr11','cBdepttStr11')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBdepttStr11" cols="290" rows="5"><%= emailSlot11 %></textarea>
+
+    <!-- 12 -->
+    <p class="<%=cssP%>">Stot:12</p>
+    <input type="checkbox" id="cBdepttStr12" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBdepttStr12','cBdepttStr12')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBdepttStr12" cols="290" rows="5"><%= emailSlot12 %></textarea>
+
+
+  </div>
+
+
+  <script>
+    function copyFunc(input1, input2) {
+
+      let copytext = document.getElementById(input1);
+
+      copytext.select();
+      document.execCommand("copy");
+      // window.getSelection().removeAllRanges();
+      document.getElementById(input2).checked = true;
+
+    }
+  </script>
+
+  <%-include('./partials/footer')%>

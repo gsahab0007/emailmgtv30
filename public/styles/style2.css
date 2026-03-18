@@ -1,0 +1,21 @@
+.maintbl td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.maintbl thead td {
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-weight: 700;
+  height: 80px;
+}
+.maintbl tbody td {
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-weight: 400;
+  height: 50px;
+}

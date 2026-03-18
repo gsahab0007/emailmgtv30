@@ -1,0 +1,167 @@
+<%-include('./partials/header')%>
+
+<div class="bg-gray-50">
+
+  <h2 class="font-bold text-center text-2xl">Email IDs for Copy / Paste</h2>
+  <h2 class="text-center">Total Emails: <%=totalEmails%></h2>
+
+
+  <% var css_emailcount="text-xl mx-5 inline ";%>
+  <% var cssP_heading="text-xl justify-center px-4 border-t-4 border-gray-500 font-bold flex ";%>
+  <% var css_btn="bg-red-600 text-gray-50 px-5 my-1 p-2  rounded ";%>
+  <% var css_chkbox="w-5 h-5 mx-5 cursor-pointer";%>
+  <% var css_textArea="mx-auto flex px-3 py-2 mb-2 text-[0.68rem]";%>
+
+  <!-- Departments -->
+  <div class=" mx-auto w-[100%] pb-10 bg-orange-300 ">
+    <p class="<%=cssP_heading%>">Departments</p>
+    <p class=""> Departments Total Email ids: <%=depttTotEmails%></p>
+    <!-- 1 -->
+
+    <p class="<%=css_emailcount%> ">Emails Count: <%=depttCount1%> </p>
+    <input type="checkbox" id="cBdepttStr1" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBdepttStr1','cBdepttStr1')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBdepttStr1" cols="290" rows="5"><%= depttStr1 %></textarea>
+    <!-- 2 -->
+    <p class="<%=css_emailcount%>">Emails Count: <%=depttCount2%> </p>
+    <input type="checkbox" id="cBdepttStr2" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBdepttStr2','cBdepttStr2')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBdepttStr2" cols="290" rows="5"><%= depttStr2 %></textarea>
+
+    <!-- 3 -->
+    <p class="<%=css_emailcount%>">Emails Count: <%=depttCount3%> </p>
+    <input type="checkbox" id="cBdepttStr3" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBdepttStr3','cBdepttStr3')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBdepttStr3" cols="290" rows="5"><%= depttStr3 %></textarea>
+  </div>
+  <!-- Neighbourhood Campus/Regional Centers -->
+  <div class="pb-10 bg-orange-100">
+    <p class="<%=cssP_heading%>">Neighbourhood Campus/Regional Centers</p>
+    <p class="<%=css_emailcount%>">Emails Count: : <%=countNCRC%> </p>
+
+    <input type="checkbox" id="cBstrNCRC" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBstrNCRC','cBstrNCRC')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBstrNCRC" cols="290" rows="3"><%= strNCRC %></textarea>
+  </div>
+
+  <!-- Constituent Colleges -->
+  <div class="pb-10 bg-orange-300">
+    <p class="<%=cssP_heading%>">Constituent Colleges</p>
+    <p class="<%=css_emailcount%>">Emails Count: <%=countConstituent%> </p>
+
+    <input type="checkbox" id="cBstrConstituent" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBstrConstituent','cBstrConstituent')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBstrConstituent" cols="290" rows="3"><%= strConstituent %></textarea>
+  </div>
+
+  <!-- Affiliated / Pvt Colleges -->
+  <div class="pb-5 bg-orange-100">
+    <p class="<%=cssP_heading%>">Affiliated / Pvt Colleges</p>
+    <p class="">Private/Affiliated College Total Email Ids: <%=pvtTotEmails%></p>
+
+    <!-- pvt 1 -->
+    <p class="<%=css_emailcount%>">Emails Count 1: <%= pvtClgCount1%> </p>
+    <input type="checkbox" id="cBpvtClg1" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBpvtClg1','cBpvtClg1')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBpvtClg1" cols="290" rows="5"><%= emailPvtClg1 %></textarea>
+
+    <!-- pvt 2 -->
+    <p class="<%=css_emailcount%>">Emails Count 2: <%= pvtClgCount2%> </p>
+
+    <input type="checkbox" id="cBpvtClg2" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBpvtClg2','cBpvtClg2')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBpvtClg2" cols="290" rows="5"><%= emailPvtClg2 %></textarea>
+
+    <!-- pvt 3 -->
+    <p class="<%=css_emailcount%>">Emails Count 3: <%= pvtClgCount3%> </p>
+    <input type="checkbox" id="cBpvtClg3" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBpvtClg3','cBpvtClg3')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBpvtClg3" cols="290" rows="5"><%= emailPvtClg3 %></textarea>
+
+    <!-- pvt 4 -->
+    <p class="<%=css_emailcount%>">Emails Count 4: <%= pvtClgCount4%> </p>
+    <input type="checkbox" id="cBpvtClg4" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBpvtClg4','cBpvtClg4')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBpvtClg4" cols="290" rows="5"><%= emailPvtClg4 %></textarea>
+
+    <!-- pvt 5 -->
+    <p class="<%=css_emailcount%>">Emails Count 5: <%= pvtClgCount5%> </p>
+    <input type="checkbox" id="cBpvtClg5" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBpvtClg5','cBpvtClg5')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBpvtClg5" cols="290" rows="5"><%= emailPvtClg5 %></textarea>
+
+    <!-- pvt 6 -->
+    <p class="<%=css_emailcount%>">Emails Count 6: <%= pvtClgCount6%> </p>
+    <input type="checkbox" id="cBpvtClg6" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBpvtClg6','cBpvtClg6')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBpvtClg6" cols="290" rows="5"><%= emailPvtClg6 %></textarea>
+
+    <!-- pvt 7 -->
+    <p class="<%=css_emailcount%>">Emails Count 7: <%= pvtClgCount7%> </p>
+    <input type="checkbox" id="cBpvtClg7" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBpvtClg7','cBpvtClg7')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBpvtClg7" cols="290" rows="5"><%= emailPvtClg7 %></textarea>
+
+    <!-- pvt 8 -->
+    <p class="<%=css_emailcount%>">Emails Count 8: <%= pvtClgCount8%> </p>
+    <input type="checkbox" id="cBpvtClg8" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBpvtClg8','cBpvtClg8')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBpvtClg8" cols="290" rows="5"><%= emailPvtClg8 %></textarea>
+
+    <!-- pvt 9 -->
+    <p class="<%=css_emailcount%>">Emails Count 9: <%= pvtClgCount9%> </p>
+    <input type="checkbox" id="cBpvtClg9" class="<%=css_chkbox%>">
+    <button onclick="copyFunc('tBpvtClg9','cBpvtClg9')" class="<%=css_btn%>">Copy Text</button>
+    <textarea readonly class="<%=css_textArea%>" name="" id="tBpvtClg9" cols="290" rows="5"><%= emailPvtClg9 %></textarea>
+
+    <!-- others -->
+    <div class="pb-10 bg-orange-300">
+      <p class="<%=cssP_heading%>">Others</p>
+      <p class="<%=css_emailcount%>">Emails Count: <%=countOthers%> </p>
+
+      <input type="checkbox" id="cBstrOthers" class="<%=css_chkbox%>">
+      <button onclick="copyFunc('tBstrOthers','cBstrOthers')" class="<%=css_btn%>">Copy Text</button>
+      <textarea readonly class="<%=css_textArea%>" name="" id="tBstrOthers" cols="290" rows="3"><%= strOthers %></textarea>
+    </div>
+
+
+    <!-- examination sets -->
+    <div class="pb-10 bg-orange-300">
+      <p class="<%=cssP_heading%>">Examination Sets</p>
+      <p class="<%=css_emailcount%>">Emails Count: <%=countEsets%> </p>
+
+      <input type="checkbox" id="cBstrEsets" class="<%=css_chkbox%>">
+      <button onclick="copyFunc('tBstrEsets','cBstrEsets')" class="<%=css_btn%>">Copy Text</button>
+      <textarea readonly class="<%=css_textArea%>" name="" id="tBstrEsets" cols="290" rows="3"><%= strEsets %></textarea>
+    </div>
+
+    <!-- govt -->
+    <div class="pb-10 bg-orange-300">
+      <p class="<%=cssP_heading%>">Govt Colleges</p>
+      <p class="<%=css_emailcount%>">Emails Count: <%=countGovt%> </p>
+
+      <input type="checkbox" id="cBstrGovt" class="<%=css_chkbox%>">
+      <button onclick="copyFunc('tBstrGovt','cBstrGovt')" class="<%=css_btn%>">Copy Text</button>
+      <textarea readonly class="<%=css_textArea%>" name="" id="tBstrGovt" cols="290" rows="3"><%= strGovt %></textarea>
+    </div>
+
+
+    
+
+  </div>
+</div>
+
+<script>
+  function copyFunc(input1, input2) {
+
+    let copytext = document.getElementById(input1);
+
+    copytext.select();
+    document.execCommand("copy");
+    // window.getSelection().removeAllRanges();
+    document.getElementById(input2).checked = true;
+
+  }
+</script>
+
+<%-include('./partials/footer')%>

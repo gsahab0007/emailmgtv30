@@ -1,0 +1,62 @@
+<%-include('./partials/header')%>
+
+<div class="bg-gray-200">
+
+  <h2 class="font-bold text-center text-2xl">Showing All Data</h2>
+
+
+<% if (arrLength !== undefined) { %>
+  <p class="text-center">Total Emails: <%= arrLength %></p>
+  <p class="text-center">Hidden Emails: <%= datahidelength %></p>
+<% } %>
+
+
+
+  <div class="mx-auto w-[100%] text-xs  justify-center items-center flex">
+    <table class="maintbl bg-gray-50 w-[95%] ">
+      <thead>
+        <tr>
+          <td class="w-14">S.No</td>
+          <td class="w-14">College / Deptt Code</td>
+          <td class="w-14">Center Code</td>
+          <td class="w-24">Type</td>
+          <td class="w-32">College/ Deptt Name</td>
+          <td class="w-32">Principal/Head & Designation</td>
+          <td class="w-14">Principal/Head Mobile </td>
+          <td class="w-32">Dealing Name & Designation</td>
+          <td class="w-14">Dealing Mobile</td>
+          <td class="w-8">Email1</td>
+          <td class="w-8">Email2</td>
+          <td class="w-8">Email3</td>
+          <td>Remarks</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (data.length != 0){  %>
+        <%  var i=1;  %>
+        <%  data.forEach(function(item,i){ %>
+          
+        <tr class="<%=item.hide == 'yes' ? 'bg-red-200' : ''%>">
+          <td><%=i+1%></td>
+          <td> <%=item.clg_code%></td>
+          <td><%=item.center_code%></td>
+          <td><%=item.type%></td>
+          <td><%=item.clg_name%></td>
+          <td><%=item.pr_name%></td>
+          <td><%=item.pr_mobile%></td>
+          <td><%=item.dealing_name%></td>
+          <td><%=item.dealing_mobile%></td>
+          <td><%=item.email1%></td>
+          <td><%=item.email2%></td>
+          <td><%=item.email3%></td>
+          <td><%=item.remarks%></td>
+        </tr>
+        <%}) }%>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+<%-include('./partials/footer')%>

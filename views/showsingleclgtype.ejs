@@ -1,0 +1,93 @@
+<%-include('./partials/header')%>
+
+<div class="bg-gray-200">
+
+  
+    <% if(clgType){ %>
+    <pre>        Unique Emails: <%=uniqueEmailsCount%> </pre>
+    <pre>        Duplicate Emails: <%=duplicatesCount%> </pre>
+    <% } %>
+
+    
+    
+
+    <pre><% if(clgType){ %><h1>        Type: <%= clgType %></h1><% } %> </pre>
+
+    <form action="/api/show/showsingleclgtype" method="GET"> 
+
+                  <pre>        <select name="type" id="" 
+                  class="border-2 border-gray-400 rounded-lg my-1 px-3  mx-5  w-96 h-8 bg-gray-100"
+
+                  value="">
+                  <option value="" disabled selected>  Select College Type </option>
+                  <option value="deptts">Department</option>
+                  <option value="NCRC" >Neighbourhood Campus Regional Center</option>
+                  <option value="Constituent">Constituent</option>
+                  <option value="Pvt">Private</option>
+                  <option value="govt">Govt</option>
+                  <option value="esets">Exam Sets</option>
+                  <option value="Others">Others</option>
+
+                  </select></pre>
+
+
+                <div class="text-gray-50">
+                  <pre>          <input type="submit" value="Submit" class=" px-3 py-2 cursor-pointer bg-blue-500 w-24 rounded justify-center  "></pre>
+              </div>
+              </form>
+
+  </div>
+
+  <h2 class="font-bold text-center text-2xl">Showing Single College Type</h2>
+
+  <div class="mx-auto w-[100%] text-xs  justify-center items-center flex">
+    
+    <% if(clgType){ %>
+
+    <table class="maintbl bg-gray-50 w-[95%] ">
+      <thead>
+        <tr>
+          <td class="w-14">S.No</td>
+          <td class="w-14">College / Deptt Code</td>
+          <td class="w-14">Center Code</td>
+          <td class="w-24">Type</td>
+          <td class="w-32">College/ Deptt Name</td>
+          <td class="w-32">Principal/Head & Designation</td>
+          <td class="w-14">Principal/Head Mobile </td>
+          <td class="w-32">Dealing Name & Designation</td>
+          <td class="w-14">Dealing Mobile</td>
+          <td class="w-8">Email1</td>
+          <td class="w-8">Email2</td>
+          <td class="w-8">Email3</td>
+          <td>Remarks</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (data.length != 0){  %>
+        <%  var i=1;  %>
+        <%  data.forEach(function(item,i){ %>
+        <tr>
+          <td><%=i+1%></td>
+          <td> <%=item.clg_code%></td>
+          <td><%=item.center_code%></td>
+          <td><%=item.type%></td>
+          <td><%=item.clg_name%></td>
+          <td><%=item.pr_name%></td>
+          <td><%=item.pr_mobile%></td>
+          <td><%=item.dealing_name%></td>
+          <td><%=item.dealing_mobile%></td>
+          <td><%=item.email1%></td>
+          <td><%=item.email2%></td>
+          <td><%=item.email3%></td>
+          <td><%=item.remarks%></td>
+        </tr>
+        <%}) }%>
+      </tbody>
+    </table>
+    <% } %>
+
+
+  </div>
+
+</div>
+<%-include('./partials/footer')%>

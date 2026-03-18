@@ -1,0 +1,54 @@
+<%-include('./partials/header')%>
+
+<h2 class="text-3xl text-center py-2 px-3">
+  Delete Record of Deptt/College
+</h2>
+
+<% var cssInputText="border-2 border-gray-400 rounded-lg my-1 px-3 py-2 mx-5 w-96 h-8 bg-gray-100" %>
+
+<% if (message != undefined) { %>
+<p class="text-xl text-red-600 text-center"><%=message%></p>
+<%}%>
+<!-- search clg code for delete deptt / clg record-->
+<div class="w-[80%] mx-auto justify-center  bg-blue-200 my-5 flex ">
+  <form action="/api/show/delclg" method="get" class="py-4 flex flex-col justify-center items-center gap-y-3">
+    <input type="number" name="clg_code" placeholder="Deptt/College Code" required class="<%=cssInputText%>">
+<input type="submit" value="Search" class=" px-3 py-2 cursor-pointer bg-blue-500 w-24 rounded justify-center text-gray-50  ">
+</form>
+</div>
+
+<% if (data){%>
+<div class="w-[80%] mx-auto justify-center   ">
+  <form action="/api/show/delclg" method="post" class="py-5 flex flex-col justify-center rounded-lg items-center  bg-blue-200">
+    <div class="grid grid-cols-2 justify-center mt-5  ">
+
+      <input type="number" readonly name="clg_code" placeholder="Deptt/College Code" required class="<%=cssInputText%>" value="<%=data.clg_code%>">
+      <input type="text" name="clg_name" placeholder="Deptt/College Name" class="<%=cssInputText%>" value="<%=data.clg_name%>">
+
+      <input type="email" name="email1" placeholder="Email-1" class="<%=cssInputText%>" value="<%=data.email1%>">
+      <input type="email" name="email2" placeholder="Email-2" class="<%=cssInputText%>" value="<%=data.email2%>">
+      <input type="email" name="email3" placeholder="Email-3" class="<%=cssInputText%>" value="<%=data.email3%>">
+      <input type="text" name="address" placeholder="Address" class="<%=cssInputText%>" value="<%=data.address%>">
+      <input type="text" name="district" placeholder="District" class="<%=cssInputText%>" value="<%=data.district%>">
+      <select name="type" id="" class="border-2 border-gray-400 rounded-lg my-1 px-3  mx-5  w-96 h-8 bg-gray-100" value="<%=data.type%>">
+        <option selected><%=data.type%></option>
+        <option value="deptts">Department</option>
+        <option value="NCRC">Neighbourhood Campus Regional Center</option>
+        <option value="Constituent">Constituent</option>
+        <option value="pvt">Private</option>
+        <option value="Others">Others</option>
+      </select>
+    </div>
+
+    <textarea name="remarks" placeholder="Remarks" id="" cols="10" rows="5" class="my-1 px-3 py-2 border-2 border-gray-400 rounded-lg w-[50%] bg-gray-100"><%=data.remarks%></textarea>
+
+
+
+    <div class="text-gray-50">
+      <input type="submit" value="Delete" class=" px-3 py-2 cursor-pointer bg-blue-500 w-24 rounded justify-center  ">
+    </div>
+  </form>
+</div>
+<%}%>
+
+<%-include('./partials/footer')%>
