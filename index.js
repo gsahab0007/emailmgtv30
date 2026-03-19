@@ -50,7 +50,7 @@ app.use('/api/show', require('./routes/emailDataRoute'));
 
 
 app.listen(port, () => {
-    console.log(`Server running: http://localhost:${port}`);
+    console.log(`Server running: http://localhost:${port}/api`);
 });
 
 module.exports = app;

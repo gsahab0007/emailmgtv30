@@ -5,6 +5,9 @@ const flash = require('connect-flash');
 showallGetCtr = async (req, res) => {
     try {
         let data = await emailDataModel.find({}).sort({ "type": 1, "clg_code": 1 });
+         
+       
+
 
         let datahide = await emailDataModel.find({ hide: "yes" }).sort({ "type": 1, "clg_code": 1 });
         
@@ -24,8 +27,14 @@ showallGetCtr = async (req, res) => {
             }
         }
     );
-    // console.log("arr: ", datahide.length);
-        res.status(200).render("showall", { data, datahidelength: datahide.length, title: "All Records", message: req.flash("message"), arrLength: arr.length });
+
+     
+        let uniqueEmails = [...new Set(arr)];
+        uniqueEmails = uniqueEmails.length;
+        let duplicates = arr.filter((item, index) => arr.indexOf(item) !== index);
+        duplicates = duplicates.length;
+
+        res.status(200).render("showall", { data, datahidelength: datahide.length, title: "All Records", message: req.flash("message"), arrLength: arr.length, uniqueEmails, duplicates  });
     } catch (error) {
         console.log("error: ", error.message);
     }
@@ -380,7 +389,7 @@ emailForCopyGetCtr = async (req, res) => {
 
         //------------------- Govt clgs-----------------
         const data7 = await emailDataModel.find(
-            { type: "govt" },
+            { type: "govtt" },
             { email1: 1, email2: 1, email3: 1, _id: 0 }
         ).sort({ clg_code: 1 });
 
@@ -541,21 +550,26 @@ email50GetCtr = async (req, res) => {
 showSingleClgTypeGetCtr = async (req, res) => {
     try {
         // console.log("req.query.type: ", req.query.type);
-        const data = await emailDataModel.find({"type": req.query.type}).sort({ "clg_code": 1 });
+        console.log(req.query.type);
+
+        // let quer = (req.query.type).trim();   
+        const data = await emailDataModel.find({"type":req.query.type}).sort({ "clg_code": 1 });
 
        
         let arr = [];
         
          data.forEach(function (item1) {
-        if (item1.email1 != "") {
+        if (item1.email1) {
             arr.push(item1.email1.trim().toLowerCase())
         }
-        if (item1.email2 != "") {
+        if (item1.email2) {
             arr.push(item1.email2.trim().toLowerCase())
         }
-        if (item1.email3 != "") {
+        if (item1.email3) {
             arr.push(item1.email3.trim().toLowerCase())
         }
+
+
 
     });
         let uniqueEmails = [...new Set(arr)];
@@ -569,7 +583,7 @@ showSingleClgTypeGetCtr = async (req, res) => {
     
         res.status(200).render("showsingleclgtype", { data, title: "Single College Type",clgType: req.query.type, message: req.flash("message"), uniqueEmailsCount, duplicatesCount });
 
-
+        
 
     } catch (error) {
         console.log("error: ", error.message);

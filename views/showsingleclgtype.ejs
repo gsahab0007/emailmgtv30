@@ -8,9 +8,6 @@
     <pre>        Duplicate Emails: <%=duplicatesCount%> </pre>
     <% } %>
 
-    
-    
-
     <pre><% if(clgType){ %><h1>        Type: <%= clgType %></h1><% } %> </pre>
 
     <form action="/api/show/showsingleclgtype" method="GET"> 
@@ -23,8 +20,8 @@
                   <option value="deptts">Department</option>
                   <option value="NCRC" >Neighbourhood Campus Regional Center</option>
                   <option value="Constituent">Constituent</option>
+                  <option value="govtt">Govt</option>
                   <option value="Pvt">Private</option>
-                  <option value="govt">Govt</option>
                   <option value="esets">Exam Sets</option>
                   <option value="Others">Others</option>
 
