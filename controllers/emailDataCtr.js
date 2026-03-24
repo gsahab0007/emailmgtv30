@@ -197,6 +197,33 @@ hideClgPostCtr = async (req, res) => {
 // -------------------- GET for copy paste deptt/clgs/neighbourhood clgs wise ----------------------
 emailForCopyGetCtr = async (req, res) => {
     try {
+
+
+        // for count unique and duplicate emails
+
+        let arr = [];
+    let a = await emailDataModel.find();
+    let excl = await emailDataModel.find({ "hide":"yes" });
+    let excLength= excl.length;
+
+        
+    a.forEach(function (item1) {
+        if (item1.email1) {
+            arr.push(item1.email1.trim().toLowerCase())            
+        }
+        if (item1.email2) {
+            arr.push(item1.email2.trim().toLowerCase())
+        }
+        if (item1.email3) {
+            arr.push(item1.email3.trim().toLowerCase())
+        }
+    });
+
+    // Remove duplicate emails
+    let uniqueAllEmails = [...new Set(arr)];
+    let uniqueAllEmailsLgt = uniqueAllEmails.length;   
+
+    
         // deptt
         const deptt = await emailDataModel.find(
             { $or: [{ type: "deptts" }, { type: "Deptts" }] },
@@ -466,6 +493,12 @@ emailForCopyGetCtr = async (req, res) => {
             pvtTotEmails,
             totalEmails,
 
+            
+            excLength,
+            uniqueAllEmailsLgt,
+            // duplicatesAllLgt,
+
+
             title: "Emails ids for Copy/Paste",
         });
     } catch (error) { console.log('err: ', error.message); }
@@ -473,7 +506,9 @@ emailForCopyGetCtr = async (req, res) => {
 // -------------------- GET for 50 50 email slot for copy paste ----------------------
 email50GetCtr = async (req, res) => {
     let arr = [];
-    let a = await emailDataModel.find({ "type": { $nin: ["Others", "esets"] } }, { email1: 1, email2: 1, email3: 1 }).sort({ "type": 1, "clg_code": 1 });
+    let a = await emailDataModel.find({ "type": { $nin: ["Others", "esets"] } , "hide": { $ne: "yes" } }, { email1: 1, email2: 1, email3: 1 }).sort({ "type": 1, "clg_code": 1 });
+    let excl = await emailDataModel.find({ "hide":"yes" });
+    let excLength= excl.length;
 
         
     a.forEach(function (item1) {
@@ -543,7 +578,7 @@ email50GetCtr = async (req, res) => {
 
     })
 
-    res.status(200).render('email50', { title: "Email Slots 50", totalEmails, emailSlot1, emailSlot2, emailSlot3, emailSlot4, emailSlot5, emailSlot6, emailSlot7, emailSlot8, emailSlot9, emailSlot10, emailSlot11, emailSlot12, duplicates });
+    res.status(200).render('email50', { title: "Email Slots 50", totalEmails, emailSlot1, emailSlot2, emailSlot3, emailSlot4, emailSlot5, emailSlot6, emailSlot7, emailSlot8, emailSlot9, emailSlot10, emailSlot11, emailSlot12, duplicates, excLength });
 }
 
 // ------------------------ GET show single type clg -------------------------
